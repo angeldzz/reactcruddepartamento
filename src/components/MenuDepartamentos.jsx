@@ -26,7 +26,7 @@ export default class MenuDepartamentos extends Component {
                                 <NavLink className="nav-link" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/hospitales">X</NavLink>
+                                <NavLink className="nav-link" to="/createDepartamento">Create Departamento</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/createHospital">X</NavLink>

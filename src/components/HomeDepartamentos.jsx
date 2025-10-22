@@ -30,7 +30,7 @@ export default class HomeDepartamentos extends Component {
         }
         return (
             <div>
-                <table className='table table-striped table-bordered table-dark'>
+                <table className='table table-striped table-bordered table-dark text-center'>
                     <thead>
                         <tr>
                             <th>Numero</th>
