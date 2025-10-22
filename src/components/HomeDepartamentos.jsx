@@ -23,6 +23,13 @@ export default class HomeDepartamentos extends Component {
     componentDidMount = () => {
         this.loadDepartamentos();
     }
+    deleteDepartamento = (idDepartamento) => {
+        let request = "api/Departamentos/" + idDepartamento
+        axios.delete(this.url + request).then(response => {
+            console.log("Delete " + idDepartamento);
+            this.loadDepartamentos();
+        })
+    }
     render() {
         if(this.state.status !== true){
             return (
@@ -49,6 +56,9 @@ export default class HomeDepartamentos extends Component {
                                         <td>{dep.nombre}</td>
                                         <td>{dep.localidad}</td>
                                         <td><NavLink to={`update/${dep.numero}/${dep.nombre}/${dep.localidad}`} className="btn btn-warning">Update</NavLink></td>
+                                        <td><button onClick={() => {
+                                            this.deleteDepartamento(dep.numero)
+                                        }} className='btn btn-danger'>Delete</button></td>
                                     </tr>
                                 )
                             })
