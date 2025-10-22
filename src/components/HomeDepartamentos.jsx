@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Global from '../Global'
 import axios from 'axios'
+import {NavLink} from 'react-router-dom'
 import imagen from "../assets/images/TralaleroTralala.webp"
 export default class HomeDepartamentos extends Component {
     state = {
@@ -30,22 +31,24 @@ export default class HomeDepartamentos extends Component {
         }
         return (
             <div>
-                <table className='table table-striped table-bordered table-dark text-center'>
+                <table className='table table-striped table-bordered text-center'>
                     <thead>
                         <tr>
                             <th>Numero</th>
                             <th>Nombre</th>
                             <th>Localidad</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            this.state.departamentos.map((departamento, index) => {
+                            this.state.departamentos.map((dep, index) => {
                                 return (
                                     <tr key={index}>
-                                        <td>{departamento.numero}</td>
-                                        <td>{departamento.nombre}</td>
-                                        <td>{departamento.localidad}</td>
+                                        <td>{dep.numero}</td>
+                                        <td>{dep.nombre}</td>
+                                        <td>{dep.localidad}</td>
+                                        <td><NavLink to={`update/${dep.numero}/${dep.nombre}/${dep.localidad}`} className="btn btn-warning">Update</NavLink></td>
                                     </tr>
                                 )
                             })
